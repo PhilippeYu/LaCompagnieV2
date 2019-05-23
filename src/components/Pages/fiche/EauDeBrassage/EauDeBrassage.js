@@ -13,7 +13,7 @@ const data = [
 
 const EauDeBrassage = props => {
   return (
-    <MDBCard style= {{fontFamily: 'keto', margin: '1%'}}>
+    <MDBCard style= {{fontFamily: 'keto'}}>
       <MDBCardHeader tag="h2" className="text-center text-uppercase py-2" style={{ backgroundColor:"rgb(217,140,7)"}}>
         Eau de Brassage
       </MDBCardHeader>

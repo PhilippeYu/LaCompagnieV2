@@ -1,20 +1,17 @@
 import React from "react";
 import { MDBCard, MDBCardHeader, MDBCardBody, MDBTableEditable } from "mdbreact";
 
-const columns = ["Nom du sel", "Quantité", "Comment"];
+const columns = ["Date", "Heure", "Plato", "Température", "pH", "Quantité", "Alcool", "Note"];
 
 const data = [
-  ["", "", ""],
-  ["", "", ""],
-  ["", "", ""],
-  
+  ["", "", "", "°C", "", "", "%", ""],
 ];
 
-const AjoutSels = props => {
+const Transfert = props => {
   return (
     <MDBCard style= {{fontFamily: 'keto'}}>
       <MDBCardHeader tag="h2" className="text-center text-uppercase py-2" style={{ backgroundColor:"rgb(217,140,7)"}}>
-        Ajout des sels
+        Transfert
       </MDBCardHeader>
       <MDBCardBody>
         <MDBTableEditable data={data} columns={columns} striped bordered />
@@ -23,4 +20,4 @@ const AjoutSels = props => {
   );
 };
 
-export default AjoutSels;
+export default Transfert;

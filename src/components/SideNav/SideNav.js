@@ -38,28 +38,24 @@ class SideNav extends Component {
             >
                 
                 <MDBSideNavNav>
-                  <MDBSideNavLink to="/other-page" topLevel><MDBIcon icon="pencil-alt" className="mr-2" />Submit listing</MDBSideNavLink>
+ 
                   <MDBSideNavCat
-                      name="Submit blog"
-                      id="submit-blog"
-                      icon="chevron-right"
-                  >
-                      <MDBSideNavLink>Submit listing</MDBSideNavLink>
-                      <MDBSideNavLink>Registration form</MDBSideNavLink>
-                  </MDBSideNavCat>
-                  
-                  <MDBSideNavCat
-                      name="Instruction"
-                      id="instruction"
+                      name="Fiche de brassage"
+                      id="Fiche de brassage"
                       icon="hand-pointer"
-                      href="#"
+                      href="/fiche_globale"
                   >
-                      <MDBSideNavLink>For bloggers</MDBSideNavLink>
-                      <MDBSideNavLink>For authors</MDBSideNavLink>
+                  </MDBSideNavCat>
+                  <MDBSideNavCat
+                      name="Fiche de fermentation"
+                      id="Fiche de brassage"
+                      icon="hand-pointer"
+                      href="/fiche_fermentation"
+                  >
                   </MDBSideNavCat>
 
                   <MDBSideNavCat name="About" id="about" icon="eye">
-                      <MDBSideNavLink>Instruction</MDBSideNavLink>
+                      <MDBSideNavLink href="/fiche_fermentation">Fiche de fermentation</MDBSideNavLink>
                       <MDBSideNavLink>Monthly meetings</MDBSideNavLink>
                   </MDBSideNavCat>
                   
