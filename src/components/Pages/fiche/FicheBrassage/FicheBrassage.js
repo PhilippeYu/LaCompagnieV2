@@ -1,19 +1,19 @@
 import React from "react";
-import { MDBCard, MDBCardHeader, MDBCardBody, MDBTableEditable, MDBDataTable, MDBBtn, MDBInput } from "mdbreact";
-import axios from 'axios';
+import { MDBCard, MDBCardHeader, MDBCardBody, MDBDataTable, MDBBtn, MDBInput } from "mdbreact";
+//import axios from 'axios';
 
 
 class FicheBrassage extends React.Component {
   state = {
     columns: [
       {
-        field: 'id',
-        label: 'ID'
+        field: 'produit',
+        label: 'Produit'
       },
 
       {
-        field: 'title',
-        label: 'Title'
+        field: 'date',
+        label: 'Date'
       },
       {
         field: 'year',
@@ -25,7 +25,8 @@ class FicheBrassage extends React.Component {
       },
       {
         field: 'delete',
-        label: 'Delete'
+        label: 'Delete',
+        width: 50
       }
     ],
     rows: [],
@@ -48,7 +49,7 @@ class FicheBrassage extends React.Component {
           title: item.title,
           year: item.year,
           genre: item.genre,
-          delete: <MDBBtn onClick={() => this.deleteMovie(item._id)}>X</MDBBtn>
+          delete: <MDBBtn onClick={() => this.deleteMovie(item._id)}>Remove</MDBBtn>
         }));
 
         this.setState({ rows });
@@ -92,7 +93,8 @@ class FicheBrassage extends React.Component {
         </MDBCardHeader>
         <MDBCardBody>
         <MDBDataTable
-          striped
+          paging={false}
+          searching={false}
           bordered
           hover
           data={{ columns: this.state.columns, rows: this.state.rows }}

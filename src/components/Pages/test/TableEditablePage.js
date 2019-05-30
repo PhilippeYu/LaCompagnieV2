@@ -5,8 +5,8 @@ class TableEditablePage extends React.Component {
   state = {
     columns: [
       {
-        field: 'title',
-        label: 'Title'
+        field: 'produit',
+        label: 'Produit'
       },
       {
         field: 'year',
@@ -41,7 +41,7 @@ class TableEditablePage extends React.Component {
           title: item.title,
           year: item.year,
           genre: item.genre,
-          delete: <MDBBtn onClick={() => this.deleteMovie(item._id)}>X</MDBBtn>
+          delete: <MDBBtn onClick={() => this.deleteMovie(item._id)}>Remove</MDBBtn>
         }));
 
         this.setState({ rows });

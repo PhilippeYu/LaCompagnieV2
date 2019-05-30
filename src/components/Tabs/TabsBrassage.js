@@ -25,7 +25,7 @@ class TabsBrassage extends React.Component {
                 <MDBNav pills color="red" className="nav-justified ">
                 <MDBNavItem>
                     <MDBNavLink
-                    to="#"
+                    to="#1"
                     className={this.state.activeItemPills === "1" ? "active" : ""}
                     onClick={this.togglePills("1")}
                     >
@@ -34,16 +34,17 @@ class TabsBrassage extends React.Component {
                 </MDBNavItem>
                 <MDBNavItem>
                     <MDBNavLink
-                    to="#"
+                    to="#2"
                     className={this.state.activeItemPills === "2" ? "active" : ""}
                     onClick={this.togglePills("2")}
+                    key="1"
                     >
                     Cuve 2
                     </MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
                     <MDBNavLink
-                    to="#"
+                    to="#3"
                     className={this.state.activeItemPills === "3" ? "active" : ""}
                     onClick={this.togglePills("3")}
                     >
@@ -83,22 +84,22 @@ class TabsBrassage extends React.Component {
 
                 <MDBTabContent activeItem={this.state.activeItemPills}>
                 <MDBTabPane tabId="1">
-                    <FicheGlobale />
+                    <FicheGlobale key="1"/>
                 </MDBTabPane>
                 <MDBTabPane tabId="2">
-                    <FicheGlobale />
+                    <FicheGlobale key="2" />
                 </MDBTabPane>
                 <MDBTabPane tabId="3">
-                    <FicheGlobale />
+                    <FicheGlobale key="3"/>
                 </MDBTabPane>
                 <MDBTabPane tabId="4">
-                    <FicheGlobale />
+                    <FicheGlobale key="4"/>
                 </MDBTabPane>
                 <MDBTabPane tabId="5">
-                    <FicheGlobale />
+                    <FicheGlobale key="4"/>
                 </MDBTabPane>
                 <MDBTabPane tabId="6">
-                    <FicheGlobale />
+                    <FicheGlobale key="4"/>
                 </MDBTabPane>
                 </MDBTabContent>
             </MDBContainer>
