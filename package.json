@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
     "mdbreact": "git+https://oauth2:uqxH_y568xCj17UUyGkK@git.mdbootstrap.com/mdb/react/re-pro.git",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

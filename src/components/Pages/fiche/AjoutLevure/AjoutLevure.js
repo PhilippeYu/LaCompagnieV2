@@ -3,7 +3,7 @@ import { MDBCard, MDBCardHeader, MDBCardBody, MDBTableEditable } from "mdbreact"
 
 const columns = ["Nom", "Quantité", "Compte de levures", "Note"];
 
-const data = [
+const rows = [
   ["", "", "", ""]
 ];
 
@@ -16,8 +16,7 @@ const AjoutLevure = props => {
       <MDBCardBody>
 
         <MDBTableEditable 
-            data={data} 
-            sorting={false} 
+            data={rows} 
             columns={columns} 
             striped bordered />
 

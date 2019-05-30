@@ -1,16 +1,9 @@
 import React from "react";
-import { MDBCard, MDBCardHeader, MDBCardBody, MDBTableEditable, MDBDataTable, MDBBtn, MDBInput } from "mdbreact";
-import axios from 'axios';
+import { MDBDataTable, MDBBtn, MDBInput } from "mdbreact";
 
-
-class FicheBrassage extends React.Component {
+class TableEditablePage extends React.Component {
   state = {
     columns: [
-      {
-        field: 'id',
-        label: 'ID'
-      },
-
       {
         field: 'title',
         label: 'Title'
@@ -31,7 +24,7 @@ class FicheBrassage extends React.Component {
     rows: [],
     input: ''
   }
-  
+
   componentDidMount() {
     this.getMovies();
   }
@@ -84,13 +77,9 @@ class FicheBrassage extends React.Component {
       .catch(err => console.error(err));
   }
 
-  render () {
+  render() {
     return (
-      <MDBCard style= {{fontFamily: 'keto'}}>
-        <MDBCardHeader tag="h2" className="text-center text-uppercase py-2" style={{ backgroundColor:"rgb(217,140,7)"}}>
-          Fiche de Brassage
-        </MDBCardHeader>
-        <MDBCardBody>
+      <>
         <MDBDataTable
           striped
           bordered
@@ -100,11 +89,9 @@ class FicheBrassage extends React.Component {
 
         <MDBInput value={this.state.input} getValue={this.updateInput} label="Insert movie title" />
         <MDBBtn onClick={this.addMovie} disabled={!this.state.input.length}>Add item</MDBBtn>
-
-        </MDBCardBody>
-      </MDBCard>
+      </>
     );
-  };
-}
+  }
+};
 
-export default FicheBrassage;
+export default TableEditablePage;
