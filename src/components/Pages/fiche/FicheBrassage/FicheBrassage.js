@@ -1,5 +1,6 @@
 import React from "react";
 import { MDBCard, MDBCardHeader, MDBCardBody, MDBDataTable, MDBBtn, MDBInput } from "mdbreact";
+
 //import axios from 'axios';
 
 
@@ -16,17 +17,17 @@ class FicheBrassage extends React.Component {
         label: 'Date'
       },
       {
-        field: 'year',
-        label: 'Year'
+        field: 'numerobrassins',
+        label: 'N° Brassins'
       },
       {
-        field: 'genre',
-        label: 'Genre'
+        field: 'numerofermenteur',
+        label: 'N° Fermenteur'
       },
       {
         field: 'delete',
         label: 'Delete',
-        width: 50
+
       }
     ],
     rows: [],
@@ -34,22 +35,22 @@ class FicheBrassage extends React.Component {
   }
   
   componentDidMount() {
-    this.getMovies();
+    this.getProduit();
   }
 
-  getMovies = () => {
-    fetch("https://man-movies-api.herokuapp.com/movies", {
+  getProduit = () => {
+    fetch("http://localhost:3001/fiche_fermentation", {
       method: "GET",
     })
       .then(res => res.json())
       .then(json => {
         let rows = [];
-        json.movies.forEach(item => rows.push({
-          id: item._id,
-          title: item.title,
-          year: item.year,
-          genre: item.genre,
-          delete: <MDBBtn onClick={() => this.deleteMovie(item._id)}>Remove</MDBBtn>
+        json.data.forEach(item => rows.push({
+          produit: item.nomProduit,
+          date: item.dateBrassage,
+          numerobrassins: item.numBrassins,
+          numerofermenteur: item.numFermenteur,
+          delete: <MDBBtn onClick={() => this.deleteProduit(item.nomProduit)}>Remove</MDBBtn>
         }));
 
         this.setState({ rows });
@@ -57,34 +58,35 @@ class FicheBrassage extends React.Component {
       .catch(err => console.error(err));
   }
 
-  addMovie = () => {
-    fetch("https://man-movies-api.herokuapp.com/movies", {
+  /*
+    addProduit = () => {
+    fetch("http://localhost:3001/fiche_fermentation", {
       method: "POST",
       body: JSON.stringify({
-        title: this.state.input
+        produit: this.state.input
       }),
       headers: {
         'Content-Type': 'application/json'
       }
     })
       .then(res => {
-        if (res.ok) this.getMovies();
+        if (res.ok) this.getProduit();
       })
       .catch(err => console.error(err));
   }
 
   updateInput = (value) => this.setState({ input: value });
 
-  deleteMovie = (id) => {
+  deleteProduit = (id) => {
     fetch(`https://man-movies-api.herokuapp.com/movies/${id}`, {
       method: "DELETE"
     })
       .then(res => {
-        if (res.ok) this.getMovies();
+        if (res.ok) this.getProduit();
       })
       .catch(err => console.error(err));
   }
-
+*/
   render () {
     return (
       <MDBCard style= {{fontFamily: 'keto'}}>
@@ -93,6 +95,7 @@ class FicheBrassage extends React.Component {
         </MDBCardHeader>
         <MDBCardBody>
         <MDBDataTable
+          style= {{ textAlign: "center", }}
           paging={false}
           searching={false}
           bordered
@@ -100,9 +103,9 @@ class FicheBrassage extends React.Component {
           data={{ columns: this.state.columns, rows: this.state.rows }}
         />
 
-        <MDBInput value={this.state.input} getValue={this.updateInput} label="Insert movie title" />
-        <MDBBtn onClick={this.addMovie} disabled={!this.state.input.length}>Add item</MDBBtn>
-
+{/*        <MDBInput value={this.state.input} getValue={this.updateInput} label="Ajout produit" />
+        <MDBBtn onClick={this.addProduit} disabled={!this.state.input.length}>Add item</MDBBtn>
+    */}
         </MDBCardBody>
       </MDBCard>
     );
