@@ -5,7 +5,7 @@ import Transfert from "./Transfert";
 const columns = ["Date", "Heure", "Plato", "Température", "pH", "Levure", "HLP", "Note"];
 
 const data = [
-  ["", "", "", "°C", "", "", "", ""],
+  ["", "", "", "", "", "", "", ""],
 ];
 
 const FicheFermentation = props => {

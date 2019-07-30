@@ -1,9 +1,11 @@
 .App {
-  text-align: center;
+  background-image: url("./img/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 @font-face {
   font-family: 'Keto';
-  font-size: normal;
   src : url(font/Teko-Medium.ttf);
 }

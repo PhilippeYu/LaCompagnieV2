@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { MDBSideNavCat, MDBSideNavNav, MDBSideNav, MDBSideNavLink, MDBContainer, MDBIcon, MDBBtn } from "mdbreact";
+import { MDBSideNavCat, MDBSideNavNav, MDBSideNav, MDBContainer, MDBIcon, MDBBtn } from "mdbreact";
 
-import logo_la_compagnie_black2 from '../../img/logo_la_compagnie_black2.png'
+import './SideNav.css'
+//import logo_la_compagnie_black from '../../img/logo_la_compagnie_black.png'
+import background_side_nav from '../../img/backsidenav2.jpg'
 
 
 
@@ -21,17 +23,20 @@ class SideNav extends Component {
   render() {
     return (
       <Router>
-        <MDBContainer>
+        <MDBContainer >
 
-          <MDBBtn onClick={this.sidenavToggle("Left")}><MDBIcon size="lg" icon="bars" /></MDBBtn>
+          <MDBBtn onClick={this.sidenavToggle("Left")} style={{backgroundColor:"rgb(217,140,7)"}}>
+            <MDBIcon size="lg" icon="bars" />
+          </MDBBtn>
 
           {/* the left SideNav: */}
             <MDBSideNav
-                logo={logo_la_compagnie_black2}
+                //logo={logo_la_compagnie_black}
+                bg={background_side_nav}
+                mask='strong'
                 hidden
                 triggerOpening={this.state.sideNavLeft}
                 breakWidth={1300}
-                className=""
                 style={{
                   backgroundColor: 'rgb(35,31,32)'
                 }}
@@ -41,28 +46,38 @@ class SideNav extends Component {
  
                   <MDBSideNavCat
                       name="Fiche de brassage"
-                      id="Fiche de brassage"
-                      icon="hand-pointer"
+                      id="fichebrassage"
+                      icon="beer"
                       href="/fiche_globale"
                   >
                   </MDBSideNavCat>
+
                   <MDBSideNavCat
                       name="Fiche de fermentation"
-                      id="Fiche de brassage"
-                      icon="hand-pointer"
+                      id="fichefermentation"
+                      icon="clipboard"
                       href="/fiche_fermentation"
                   >
                   </MDBSideNavCat>
 
-                  <MDBSideNavCat name="About" id="about" icon="eye">
-                      <MDBSideNavLink href="/fiche_fermentation">Fiche de fermentation</MDBSideNavLink>
-                      <MDBSideNavLink>Monthly meetings</MDBSideNavLink>
+                  <MDBSideNavCat
+                      name="Historique"
+                      id="historique"
+                      icon="archive"
+                      href="/fiche_fermentation"
+                  >
                   </MDBSideNavCat>
+
+                  <MDBSideNavCat
+                      name="Réglages"
+                      id="reglages"
+                      icon="cog"
+                      href="/fiche_fermentation"
+                  >
+                  </MDBSideNavCat>
+
+
                   
-                  <MDBSideNavCat name="Contact me" id="contact-me" icon="envelope">
-                      <MDBSideNavLink>FAQ</MDBSideNavLink>
-                      <MDBSideNavLink>Write a message</MDBSideNavLink>
-                  </MDBSideNavCat>
                 </MDBSideNavNav>
             </MDBSideNav>
           </MDBContainer>

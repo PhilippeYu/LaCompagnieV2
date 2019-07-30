@@ -1,8 +1,6 @@
 import React from "react";
-import { MDBCard, MDBCardHeader, MDBCardBody, MDBDataTable, MDBBtn, MDBInput } from "mdbreact";
-
-//import axios from 'axios';
-
+import { MDBCard, MDBCardHeader, MDBCardBody, MDBDataTable, MDBBtn } from "mdbreact";
+//Ne pas oublier d'importer MDBInput si InputButton
 
 class FicheBrassage extends React.Component {
   state = {
@@ -27,9 +25,9 @@ class FicheBrassage extends React.Component {
       {
         field: 'delete',
         label: 'Delete',
-
       }
     ],
+    
     rows: [],
     input: ''
   }
@@ -38,8 +36,9 @@ class FicheBrassage extends React.Component {
     this.getProduit();
   }
 
+//GET DES PRODUITS
   getProduit = () => {
-    fetch("http://localhost:3001/fiche_fermentation", {
+    fetch("http://localhost:3001/fiche_brassage", {
       method: "GET",
     })
       .then(res => res.json())
@@ -58,9 +57,9 @@ class FicheBrassage extends React.Component {
       .catch(err => console.error(err));
   }
 
-  /*
+//ADD DES PRODUITS
     addProduit = () => {
-    fetch("http://localhost:3001/fiche_fermentation", {
+    fetch("http://localhost:3001/fiche_brassage", {
       method: "POST",
       body: JSON.stringify({
         produit: this.state.input
@@ -77,6 +76,7 @@ class FicheBrassage extends React.Component {
 
   updateInput = (value) => this.setState({ input: value });
 
+//DELETE DES PRODUITS
   deleteProduit = (id) => {
     fetch(`https://man-movies-api.herokuapp.com/movies/${id}`, {
       method: "DELETE"
@@ -86,13 +86,14 @@ class FicheBrassage extends React.Component {
       })
       .catch(err => console.error(err));
   }
-*/
+
   render () {
     return (
-      <MDBCard style= {{fontFamily: 'keto'}}>
+      <MDBCard style= {{fontFamily: 'keto', fontSize: '50px'}}>
         <MDBCardHeader tag="h2" className="text-center text-uppercase py-2" style={{ backgroundColor:"rgb(217,140,7)"}}>
           Fiche de Brassage
         </MDBCardHeader>
+        
         <MDBCardBody>
         <MDBDataTable
           style= {{ textAlign: "center", }}
@@ -100,11 +101,14 @@ class FicheBrassage extends React.Component {
           searching={false}
           bordered
           hover
+          editable
+          striped
+          sortable={false}
           data={{ columns: this.state.columns, rows: this.state.rows }}
         />
 
-{/*        <MDBInput value={this.state.input} getValue={this.updateInput} label="Ajout produit" />
-        <MDBBtn onClick={this.addProduit} disabled={!this.state.input.length}>Add item</MDBBtn>
+{/*       <MDBInput value={this.state.input} getValue={this.updateInput} label="Ajout produit" />
+          <MDBBtn onClick={this.addProduit} disabled={!this.state.input.length}>Add item</MDBBtn>
     */}
         </MDBCardBody>
       </MDBCard>
